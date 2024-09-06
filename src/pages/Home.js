@@ -49,7 +49,7 @@ export default function Home(){
     }
     return (
         <>
-        <div style={{display:"flex" ,flexDirection:"column" , justifyContent:"center" , alignItems:"center" , height:"100vh"}}>
+        <div style={{display:"flex" ,flexDirection:"column" , justifyContent:"center" , alignItems:"center" , minHeight:"93vh"}}>
             <div style={{display:"flex", flexDirection:"column", alignItems:"center" , justifyContent:"center"}}>
                 <img src="logo.jpg" alt="Arab computers GS1" height="250px" />
             <h2> GS1 Serial Lookup</h2>
@@ -67,6 +67,9 @@ export default function Home(){
             </form>
           </div>
         </div>
+
+        <p className="text-center" style={{color:"#ccc"}} >Created By Mohamed Beshri Amer <br/> Arab Computer Software Helper</p>
+    
         <BasicModal handleClose={handleClose} show={show} handleShow={handleShow} message={errors} />
         </>
     )
