@@ -2,6 +2,7 @@ import { useState } from "react";
 import {Button} from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import BasicModal from "../components/BasicModal";
+import logo from "../logo.jpg";
 export default function Home(){
 
     const navigate = useNavigate();
@@ -22,7 +23,10 @@ export default function Home(){
             return;
         }
         setIsLoading(true);
-        const response = await fetch(`http://testingapplicationgs12.somee.com/api/Codes?BarCode=${getSerial}&Type=GS1`);
+        const response = await fetch(`http://testingapplicationgs12.somee.com/api/Codes?BarCode=${getSerial}&Type=GS1`,{
+            // ...
+            referrerPolicy: "unsafe-url" 
+        });
         if(!response.ok){
         if(response.status === 400){
            const error =  await response.json();   
@@ -51,7 +55,7 @@ export default function Home(){
         <>
         <div style={{display:"flex" ,flexDirection:"column" , justifyContent:"center" , alignItems:"center" , minHeight:"93vh"}}>
             <div style={{display:"flex", flexDirection:"column", alignItems:"center" , justifyContent:"center"}}>
-                <img src="logo.jpg" alt="Arab computers GS1" height="250px" />
+                <img src={logo} alt="Arab computers GS1" height="250px" />
             <h2> GS1 Serial Lookup</h2>
 
           </div>
